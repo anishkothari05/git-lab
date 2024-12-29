@@ -2,7 +2,19 @@
 #include <string.h>
 
 // Function to return precedence of operator on the stack
-
+int stack_precedence(char symbol) {
+    switch (symbol) {
+        case '+':
+        case '-': return 2;
+        case '*':
+        case '/': return 4;
+        case '^':
+        case '$': return 5;
+        case '(': return 0;
+        case '#': return -1;
+        default: return 8; // Operand precedence
+    }
+}
 
 // Function to return precedence of incoming operator
 int incoming_precedence(char symbol) {
